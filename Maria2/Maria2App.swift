@@ -1,9 +1,5 @@
-//
-//  Maria2App.swift
-//  Maria2
-//
-//  Created by Jaume on 12/3/22.
-//
+// Maria2App.swift
+// Maria2
 
 import SwiftUI
 

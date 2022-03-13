@@ -1,0 +1,22 @@
+#swift version
+--swiftversion 5.5
+
+#headers
+--header "{file}\nMaria2"
+
+#numberFormatting
+--decimalgrouping 3,5
+
+#collections
+--wrapcollections before-first
+--wraparguments after-first
+--wrapparameters after-first
+--commas always
+
+#closures or funcs
+--voidtype void
+--stripunusedargs closure-only
+
+# Opt-in rules
+--enable wrapConditionalBodies
+--enable numberFormatting

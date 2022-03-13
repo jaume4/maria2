@@ -11,7 +11,39 @@
 		1F3CB85327DD119C00A1D4B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB85227DD119C00A1D4B8 /* ContentView.swift */; };
 		1F3CB85527DD119C00A1D4B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3CB85427DD119C00A1D4B8 /* Assets.xcassets */; };
 		1F3CB85827DD119C00A1D4B8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3CB85727DD119C00A1D4B8 /* Preview Assets.xcassets */; };
+		1F3CB86227DD265000A1D4B8 /* aria2c in Copya aria2c */ = {isa = PBXBuildFile; fileRef = 1F3CB85F27DD255100A1D4B8 /* aria2c */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1F3CB86527DD287F00A1D4B8 /* DownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB86427DD287F00A1D4B8 /* DownloadTask.swift */; };
+		1F3CB86927DD3A4300A1D4B8 /* Aria2Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB86827DD3A4300A1D4B8 /* Aria2Parser.swift */; };
+		1F3CB86C27DD3A8300A1D4B8 /* Parsing in Frameworks */ = {isa = PBXBuildFile; productRef = 1F3CB86B27DD3A8300A1D4B8 /* Parsing */; };
+		1F3CB87127DD581500A1D4B8 /* Aria2CTerminationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB87027DD581500A1D4B8 /* Aria2CTerminationStatus.swift */; };
+		1F3CB87327DDCB6200A1D4B8 /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB87227DDCB6200A1D4B8 /* URL+.swift */; };
+		1FA71BCA27DDE07E00458703 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA71BC927DDE07E00458703 /* DownloadManager.swift */; };
+		1FA71BE727DE014600458703 /* Maria2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA71BE627DE014600458703 /* Maria2Tests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1FA71BE827DE014600458703 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F3CB84527DD119C00A1D4B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F3CB84C27DD119C00A1D4B8;
+			remoteInfo = Maria2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1F3CB86127DD264800A1D4B8 /* Copya aria2c */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				1F3CB86227DD265000A1D4B8 /* aria2c in Copya aria2c */,
+			);
+			name = "Copya aria2c";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1F3CB84D27DD119C00A1D4B8 /* Maria2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maria2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -20,10 +52,26 @@
 		1F3CB85427DD119C00A1D4B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F3CB85727DD119C00A1D4B8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1F3CB85927DD119C00A1D4B8 /* Maria2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Maria2.entitlements; sourceTree = "<group>"; };
+		1F3CB85F27DD255100A1D4B8 /* aria2c */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = aria2c; sourceTree = "<group>"; };
+		1F3CB86427DD287F00A1D4B8 /* DownloadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTask.swift; sourceTree = "<group>"; };
+		1F3CB86827DD3A4300A1D4B8 /* Aria2Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aria2Parser.swift; sourceTree = "<group>"; };
+		1F3CB87027DD581500A1D4B8 /* Aria2CTerminationStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aria2CTerminationStatus.swift; sourceTree = "<group>"; };
+		1F3CB87227DDCB6200A1D4B8 /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
+		1FA71BC927DDE07E00458703 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		1FA71BE427DE014600458703 /* Maria2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Maria2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FA71BE627DE014600458703 /* Maria2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maria2Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1F3CB84A27DD119C00A1D4B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F3CB86C27DD3A8300A1D4B8 /* Parsing in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FA71BE127DE014600458703 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				1F3CB84F27DD119C00A1D4B8 /* Maria2 */,
+				1FA71BE527DE014600458703 /* Maria2Tests */,
 				1F3CB84E27DD119C00A1D4B8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				1F3CB84D27DD119C00A1D4B8 /* Maria2.app */,
+				1FA71BE427DE014600458703 /* Maria2Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,9 +103,13 @@
 			isa = PBXGroup;
 			children = (
 				1F3CB85027DD119C00A1D4B8 /* Maria2App.swift */,
+				1F3CB86427DD287F00A1D4B8 /* DownloadTask.swift */,
+				1F3CB87227DDCB6200A1D4B8 /* URL+.swift */,
+				1F3CB87027DD581500A1D4B8 /* Aria2CTerminationStatus.swift */,
+				1F3CB86827DD3A4300A1D4B8 /* Aria2Parser.swift */,
 				1F3CB85227DD119C00A1D4B8 /* ContentView.swift */,
-				1F3CB85427DD119C00A1D4B8 /* Assets.xcassets */,
-				1F3CB85927DD119C00A1D4B8 /* Maria2.entitlements */,
+				1FA71BC927DDE07E00458703 /* DownloadManager.swift */,
+				1F3CB86327DD269500A1D4B8 /* Resources */,
 				1F3CB85627DD119C00A1D4B8 /* Preview Content */,
 			);
 			path = Maria2;
@@ -69,6 +123,24 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		1F3CB86327DD269500A1D4B8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1F3CB85427DD119C00A1D4B8 /* Assets.xcassets */,
+				1F3CB85927DD119C00A1D4B8 /* Maria2.entitlements */,
+				1F3CB85F27DD255100A1D4B8 /* aria2c */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1FA71BE527DE014600458703 /* Maria2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1FA71BE627DE014600458703 /* Maria2Tests.swift */,
+			);
+			path = Maria2Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,15 +151,37 @@
 				1F3CB84927DD119C00A1D4B8 /* Sources */,
 				1F3CB84A27DD119C00A1D4B8 /* Frameworks */,
 				1F3CB84B27DD119C00A1D4B8 /* Resources */,
+				1F3CB86127DD264800A1D4B8 /* Copya aria2c */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Maria2;
+			packageProductDependencies = (
+				1F3CB86B27DD3A8300A1D4B8 /* Parsing */,
+			);
 			productName = Maria2;
 			productReference = 1F3CB84D27DD119C00A1D4B8 /* Maria2.app */;
 			productType = "com.apple.product-type.application";
+		};
+		1FA71BE327DE014600458703 /* Maria2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FA71BEA27DE014600458703 /* Build configuration list for PBXNativeTarget "Maria2Tests" */;
+			buildPhases = (
+				1FA71BE027DE014600458703 /* Sources */,
+				1FA71BE127DE014600458703 /* Frameworks */,
+				1FA71BE227DE014600458703 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FA71BE927DE014600458703 /* PBXTargetDependency */,
+			);
+			name = Maria2Tests;
+			productName = Maria2Tests;
+			productReference = 1FA71BE427DE014600458703 /* Maria2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -102,6 +196,10 @@
 					1F3CB84C27DD119C00A1D4B8 = {
 						CreatedOnToolsVersion = 13.1;
 					};
+					1FA71BE327DE014600458703 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 1F3CB84C27DD119C00A1D4B8;
+					};
 				};
 			};
 			buildConfigurationList = 1F3CB84827DD119C00A1D4B8 /* Build configuration list for PBXProject "Maria2" */;
@@ -113,11 +211,15 @@
 				Base,
 			);
 			mainGroup = 1F3CB84427DD119C00A1D4B8;
+			packageReferences = (
+				1F3CB86A27DD3A8300A1D4B8 /* XCRemoteSwiftPackageReference "swift-parsing" */,
+			);
 			productRefGroup = 1F3CB84E27DD119C00A1D4B8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				1F3CB84C27DD119C00A1D4B8 /* Maria2 */,
+				1FA71BE327DE014600458703 /* Maria2Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -132,6 +234,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1FA71BE227DE014600458703 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -140,11 +249,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F3CB85327DD119C00A1D4B8 /* ContentView.swift in Sources */,
+				1F3CB87327DDCB6200A1D4B8 /* URL+.swift in Sources */,
 				1F3CB85127DD119C00A1D4B8 /* Maria2App.swift in Sources */,
+				1F3CB86927DD3A4300A1D4B8 /* Aria2Parser.swift in Sources */,
+				1F3CB87127DD581500A1D4B8 /* Aria2CTerminationStatus.swift in Sources */,
+				1F3CB86527DD287F00A1D4B8 /* DownloadTask.swift in Sources */,
+				1FA71BCA27DDE07E00458703 /* DownloadManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FA71BE027DE014600458703 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FA71BE727DE014600458703 /* Maria2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FA71BE927DE014600458703 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F3CB84C27DD119C00A1D4B8 /* Maria2 */;
+			targetProxy = 1FA71BE827DE014600458703 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1F3CB85A27DD119C00A1D4B8 /* Debug */ = {
@@ -267,7 +397,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Maria2/Maria2.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Maria2/Resources/Maria2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -294,7 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Maria2/Maria2.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Maria2/Resources/Maria2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -313,6 +443,52 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		1FA71BEB27DE014600458703 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HQV3E5C7S2;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.corbi.Maria2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maria2.app/Contents/MacOS/Maria2";
+			};
+			name = Debug;
+		};
+		1FA71BEC27DE014600458703 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HQV3E5C7S2;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.corbi.Maria2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maria2.app/Contents/MacOS/Maria2";
 			};
 			name = Release;
 		};
@@ -337,7 +513,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		1FA71BEA27DE014600458703 /* Build configuration list for PBXNativeTarget "Maria2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FA71BEB27DE014600458703 /* Debug */,
+				1FA71BEC27DE014600458703 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1F3CB86A27DD3A8300A1D4B8 /* XCRemoteSwiftPackageReference "swift-parsing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-parsing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F3CB86B27DD3A8300A1D4B8 /* Parsing */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F3CB86A27DD3A8300A1D4B8 /* XCRemoteSwiftPackageReference "swift-parsing" */;
+			productName = Parsing;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1F3CB84527DD119C00A1D4B8 /* Project object */;
 }
