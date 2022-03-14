@@ -9,18 +9,13 @@ final class DownloadManager: ObservableObject {
     @Published var renamed: String? = nil
     @Published var channels: Int = 0
     @Published var progress = Progress()
-    @Published var url: URL?
+    @Published var url: URL
     @Published var downloading = false
-
-    @Published var urlString = "" {
-        didSet {
-            url = URL(string: urlString)
-        }
-    }
 
     var task: Task<Void, Never>?
 
-    init() {
+    init(url: URL) {
+        self.url = url
         progress.kind = .file
         progress.fileOperationKind = .downloading
     }
@@ -46,11 +41,7 @@ final class DownloadManager: ObservableObject {
     }
 
     private func generateDownloadTask() -> Task<Void, Never>? {
-        guard let url = url else {
-            return nil
-        }
-
-        return Task {
+        Task {
             for await ariaUpdate in DownloadTask.launch(url: url) {
                 await MainActor.run {
                     switch ariaUpdate {
