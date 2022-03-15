@@ -13,6 +13,14 @@ extension URL {
     }
 
     var terminalPath: String {
-        absoluteString.replacingOccurrences(of: "file://", with: "").replacingOccurrences(of: "%20", with: " ")
+        let path = absoluteString
+            .replacingOccurrences(of: "file://", with: "")
+            .replacingOccurrences(of: "%20", with: " ")
+
+        if path.last == "/" {
+            return String(path.dropLast())
+        } else {
+            return path
+        }
     }
 }

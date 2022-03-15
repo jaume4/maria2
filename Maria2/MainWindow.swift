@@ -16,8 +16,9 @@ struct MainWindow: View {
                     appState.newDownload(string: urlString)
                 }
 
-                ForEach(appState.downloads, id: \.url) {
+                ForEach(appState.downloads) {
                     DownloadView(download: $0)
+                    Divider()
                 }
             }
             .padding()
@@ -26,7 +27,15 @@ struct MainWindow: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    @MainActor
+    static let state: AppState = {
+        let state = AppState()
+        state.downloads.append(contentsOf: DownloadView_Previews.downloads)
+        return state
+    }()
+
     static var previews: some View {
         MainWindow()
+            .environmentObject(state)
     }
 }

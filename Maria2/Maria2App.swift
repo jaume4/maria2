@@ -13,8 +13,10 @@ struct Maria2App: App {
                 .environmentObject(appState)
                 .navigationTitle("Maria2")
                 .toolbar {
-                    Button(action: {}, label: { Image(systemName: Bool.random() ? "play.fill" : "pause.fill") })
-                    Button(action: {}, label: { Image(systemName: "plus") })
+                    ControlGroup {
+                        Button(action: {}, label: { Image(systemName: Bool.random() ? "play.fill" : "pause.fill") })
+                        Button(action: {}, label: { Image(systemName: "plus") })
+                    }
                 }
         }
     }

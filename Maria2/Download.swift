@@ -1,27 +1,32 @@
 // Download.swift
 // Maria2
 
+import AppKit
 import Combine
 import Foundation
 
 @MainActor
-final class Download: ObservableObject {
+final class Download: ObservableObject, Identifiable {
     @Published var renamed: String? = nil
     @Published var channels: Int = 0
     @Published var progress = Progress()
     @Published var url: URL
     @Published var status: Status = .notStarted
+    @Published var destinationFolder: URL
+    @Published var aria2Status: Aria2CTerminationStatus?
 
     var task: Task<Void, Never>?
 
-    init(url: URL) {
+    init(url: URL, destination: URL) {
         self.url = url
+        destinationFolder = destination
         progress.kind = .file
         progress.fileOperationKind = .downloading
     }
 
     func download() {
         task?.cancel()
+        aria2Status = nil
 
         if let task = generateDownloadTask() {
             status = .downloading
@@ -40,6 +45,27 @@ final class Download: ObservableObject {
         status = .cancelled
     }
 
+    func tappedPlayPauseButton() {
+        switch status {
+        case .notStarted, .downloading:
+            cancel()
+        case .error:
+            download()
+        case .cancelled:
+            download()
+        case .finished:
+            let url: URL
+            if let renamed = renamed {
+                url = destinationFolder.appendingPathComponent(renamed).fileURL
+            } else {
+                url = destinationFolder.appendingPathComponent(self.url.lastPathComponent).fileURL
+            }
+            NSWorkspace.shared.activateFileViewerSelecting([url])
+        }
+    }
+
+    func remove() {}
+
     func statusText() -> String {
         switch status {
         case .notStarted,
@@ -51,7 +77,7 @@ final class Download: ObservableObject {
         case .cancelled:
             return "Cancelled"
         case .error:
-            return "Error"
+            return aria2Status?.description ?? "Unknown error"
         case .finished:
             return "Finished"
         }
@@ -59,7 +85,7 @@ final class Download: ObservableObject {
 
     private func generateDownloadTask() -> Task<Void, Never>? {
         Task {
-            for await ariaUpdate in DownloadTask.launch(url: url) {
+            for await ariaUpdate in DownloadTask.launch(url: url, destination: destinationFolder) {
                 await MainActor.run {
                     switch ariaUpdate {
                     case let .update(progressReport):
@@ -72,9 +98,14 @@ final class Download: ObservableObject {
 
                     case let .renamed(newName):
                         self.renamed = newName
-                    case let .finished(status):
-                        self.status = .finished
-                        self.progress.completedUnitCount = self.progress.totalUnitCount
+                    case let .finished(aria2Status):
+                        if aria2Status == .finished {
+                            self.status = .finished
+                            self.progress.completedUnitCount = self.progress.totalUnitCount
+                        } else {
+                            self.status = .error
+                            self.aria2Status = aria2Status
+                        }
                     }
                 }
             }

@@ -5,7 +5,7 @@ import Combine
 import Foundation
 
 enum DownloadTask {
-    static func launch(url: URL) -> AsyncStream<Aria2Progress> {
+    static func launch(url: URL, destination: URL) -> AsyncStream<Aria2Progress> {
         AsyncStream { continuation in
 
             let aria2Process = Process()
@@ -13,16 +13,15 @@ enum DownloadTask {
             Task {
                 let aria2URL = Bundle.main.url(forAuxiliaryExecutable: "aria2c")
 
-                let destination = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Downloads").terminalPath.dropLast() // remove last `/`
-
                 aria2Process.qualityOfService = .userInitiated
                 aria2Process.executableURL = aria2URL
                 aria2Process.arguments = [
                     "--max-connection-per-server=16",
                     "--split=16",
                     "--summary-interval=1",
+                    "--file-allocation=none",
                     "--stop-with-process=\(ProcessInfo.processInfo.processIdentifier)",
-                    "--dir=\(destination)",
+                    "--dir=\(destination.terminalPath)",
                     "--show-console-readout=false",
                     "--human-readable=false",
                     url.absoluteString,
