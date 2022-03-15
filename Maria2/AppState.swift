@@ -5,7 +5,7 @@ import Foundation
 import SwiftUI
 
 final class AppState: ObservableObject {
-    @Published var downloads: [DownloadManager] = []
+    @Published var downloads: [Download] = []
 
     @MainActor
     func newDownload(string: String) {
@@ -13,7 +13,7 @@ final class AppState: ObservableObject {
             return
         }
 
-        let manager = DownloadManager(url: url)
+        let manager = Download(url: url)
         manager.url = url
 
         manager.download()

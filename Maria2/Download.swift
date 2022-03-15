@@ -1,16 +1,16 @@
-// DownloadManager.swift
+// Download.swift
 // Maria2
 
 import Combine
 import Foundation
 
 @MainActor
-final class DownloadManager: ObservableObject {
+final class Download: ObservableObject {
     @Published var renamed: String? = nil
     @Published var channels: Int = 0
     @Published var progress = Progress()
     @Published var url: URL
-    @Published var downloading = false
+    @Published var status: Status = .notStarted
 
     var task: Task<Void, Never>?
 
@@ -24,7 +24,7 @@ final class DownloadManager: ObservableObject {
         task?.cancel()
 
         if let task = generateDownloadTask() {
-            downloading = true
+            status = .downloading
             self.task = task
 
             Task.detached(priority: .userInitiated) {
@@ -37,7 +37,24 @@ final class DownloadManager: ObservableObject {
         task?.cancel()
         task = nil
 
-        downloading = false
+        status = .cancelled
+    }
+
+    func statusText() -> String {
+        switch status {
+        case .notStarted,
+             .downloading where progress.localizedAdditionalDescription.isEmpty:
+            return "Starting"
+        case .downloading:
+            return progress.localizedAdditionalDescription
+                .replacingOccurrences(of: " — ", with: "\n")
+        case .cancelled:
+            return "Cancelled"
+        case .error:
+            return "Error"
+        case .finished:
+            return "Finished"
+        }
     }
 
     private func generateDownloadTask() -> Task<Void, Never>? {
@@ -56,10 +73,17 @@ final class DownloadManager: ObservableObject {
                     case let .renamed(newName):
                         self.renamed = newName
                     case let .finished(status):
-                        downloading = false
+                        self.status = .finished
+                        self.progress.completedUnitCount = self.progress.totalUnitCount
                     }
                 }
             }
         }
+    }
+}
+
+extension Download {
+    enum Status {
+        case notStarted, downloading, error, cancelled, finished
     }
 }

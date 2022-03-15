@@ -17,7 +17,7 @@ struct MainWindow: View {
                 }
 
                 ForEach(appState.downloads, id: \.url) {
-                    DownloadView(url: $0.url, progress: $0.progress.fractionCompleted, text: $0.progress.localizedAdditionalDescription)
+                    DownloadView(download: $0)
                 }
             }
             .padding()
