@@ -75,7 +75,7 @@ enum Aria2Progress {
                 PrefixThrough("ETA:".utf8)
             }
 
-            TimeParser()
+            timeParse
         }
 
         // Rest
@@ -103,30 +103,26 @@ enum Aria2Progress {
             Rest()
         }
     }.map(Aria2Progress.renamed)
-}
 
-struct TimeParser: Parser {
-    private static let units: Set<UInt8> = [.init(ascii: "s"), .init(ascii: "m"), .init(ascii: "h")]
-
-    private static let parser = Parse {
+    private static let timeParse = Parse {
         Many(atLeast: 1) {
-            Int.parser()
-            Prefix(1) { units.contains($0) }.compactMap(String.init)
+            Int.parser(of: Substring.UTF8View.self)
+            Units.parser()
+        }.map { values in
+            values.reduce(into: 0) { result, arg1 in
+                let (time, unit) = arg1
+                switch unit {
+                case .seconds: result += time
+                case .minute: result += time * 60
+                case .hour: result += time * 60 * 60
+                }
+            }
         }
     }
 
-    func parse(_ input: inout Substring.UTF8View) throws -> Int {
-        let values = try Self.parser.parse(input)
-
-        return values
-            .map { value, unit -> Int in
-                switch unit {
-                case "s": return value
-                case "m": return value * 60
-                case "h": return value * 60 * 60
-                default: preconditionFailure("unexpected unit: \(unit)")
-                }
-            }
-            .reduce(0, +)
+    enum Units: String, CaseIterable {
+        case hour = "h"
+        case minute = "m"
+        case seconds = "s"
     }
 }
