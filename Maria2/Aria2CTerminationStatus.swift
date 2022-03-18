@@ -1,8 +1,6 @@
 // Aria2CTerminationStatus.swift
 // Maria2
 
-import Foundation
-
 // https://github.com/RobotsAndPencils/XcodesApp/blob/main/Xcodes/Backend/Aria2CTerminationStatus.swift
 // https://github.com/aria2/aria2/blob/master/src/error_code.h
 enum Aria2CTerminationStatus: Int32, CustomStringConvertible {

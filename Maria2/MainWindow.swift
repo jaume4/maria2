@@ -5,29 +5,51 @@ import SwiftUI
 
 struct MainWindow: View {
     @EnvironmentObject var appState: AppState
-    @State var urlString = ""
 
     var body: some View {
+        Group {
+            if !appState.downloads.isEmpty {
+                downloadView
+            } else {
+                emptyView
+            }
+        }
+        .sheet(item: $appState.presentedSheet, content: sheetView(for:))
+    }
+
+    var downloadView: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                TextField("URL", text: $urlString)
-
-                Button("Download") {
-                    appState.newDownload(string: urlString)
-                }
-
-                ForEach(appState.downloads) {
-                    DownloadView(download: $0)
-                    Divider()
-                }
+                if !appState.downloads.isEmpty {
+                    ForEach(appState.downloads) {
+                        DownloadView(download: $0)
+                        Divider()
+                    }
+                } else {}
             }
             .padding()
+        }
+    }
+
+    var emptyView: some View {
+        Text("Add a download to start")
+            .frame(alignment: .center)
+            .padding()
+    }
+
+    private func sheetView(for sheet: AppState.Sheet) -> some View {
+        Group {
+            switch sheet {
+            case .newDownload:
+                AddURLView()
+            case .preferences:
+                AddURLView()
+            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    @MainActor
     static let state: AppState = {
         let state = AppState()
         state.downloads.append(contentsOf: DownloadView_Previews.downloads)

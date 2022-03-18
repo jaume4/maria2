@@ -57,7 +57,6 @@ struct DownloadView: View {
 }
 
 struct DownloadView_Previews: PreviewProvider {
-    @MainActor
     static func baseDownload() -> Download {
         let download = Download(url: URL(string: "http://mac-mini.local:8000/video.zip")!, destination: URL(string: "~")!)
         download.progress.totalUnitCount = 100_000
@@ -69,7 +68,6 @@ struct DownloadView_Previews: PreviewProvider {
         return download
     }
 
-    @MainActor
     static let notStarted: Download = {
         let download = baseDownload()
         download.status = .notStarted
@@ -77,7 +75,6 @@ struct DownloadView_Previews: PreviewProvider {
         return download
     }()
 
-    @MainActor
     static let cancelled: Download = {
         let download = baseDownload()
         download.status = .cancelled
@@ -85,7 +82,6 @@ struct DownloadView_Previews: PreviewProvider {
         return download
     }()
 
-    @MainActor
     static let finished: Download = {
         let download = baseDownload()
         download.status = .finished
@@ -95,7 +91,6 @@ struct DownloadView_Previews: PreviewProvider {
         return download
     }()
 
-    @MainActor
     static let downloads = [
         notStarted,
         baseDownload(),

@@ -1,7 +1,6 @@
 // Aria2Parser.swift
 // Maria2
 
-import Foundation
 import Parsing
 
 struct ProgressReport: Equatable {
@@ -109,8 +108,8 @@ enum Aria2Progress {
             Int.parser(of: Substring.UTF8View.self)
             Units.parser()
         }.map { values in
-            values.reduce(into: 0) { result, arg1 in
-                let (time, unit) = arg1
+            values.reduce(into: 0) { result, timeUnit in
+                let (time, unit) = timeUnit
                 switch unit {
                 case .seconds: result += time
                 case .minute: result += time * 60

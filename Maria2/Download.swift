@@ -2,10 +2,8 @@
 // Maria2
 
 import AppKit
-import Combine
 import Foundation
 
-@MainActor
 final class Download: ObservableObject, Identifiable {
     @Published var renamed: String? = nil
     @Published var channels: Int = 0
