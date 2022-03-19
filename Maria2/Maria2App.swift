@@ -22,17 +22,10 @@ struct Maria2App: App {
         }
 
         .commands {
-            CommandGroup(replacing: .help) {}
-            CommandGroup(replacing: .newItem) {
-                Button("New URL download") {
-                    appState.presentedSheet = .newDownload
-                }
-                .keyboardShortcut("N", modifiers: [.command])
-                Button("Open URLs file") {
-                    appState.openFile()
-                }
-                .keyboardShortcut("O")
-            }
+            AppCommands(presentedSheet: $appState.presentedSheet,
+                        openFile: { [unowned appState] in
+                            appState.openFile()
+                        })
         }
     }
 

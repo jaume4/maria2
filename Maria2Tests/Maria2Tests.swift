@@ -31,7 +31,9 @@ class Maria2Tests: XCTestCase {
     }
 
     func testRenamingParsing() throws {
-        // report contains unprintable ascii characters so using data instead
+        /* report contains unprintable ascii characters so using data instead
+         03/12 22:26:09 [[1;32mNOTICE[0m] File already exists. Renamed to /Users/jaume/Downloads/TEST.1.ipa.
+         */
         let aria2progressReportData = "MDMvMTIgMjI6MjY6MDkgWxtbMTszMm1OT1RJQ0UbWzBtXSBGaWxlIGFscmVhZHkgZXhpc3RzLiBSZW5hbWVkIHRvIC9Vc2Vycy9qYXVtZS9Eb3dubG9hZHMvVEVTVC4xLmlwYS4K"
         let aria2progressReport = String(decoding: Data(base64Encoded: aria2progressReportData)!, as: UTF8.self)
 

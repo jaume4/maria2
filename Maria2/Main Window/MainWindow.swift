@@ -53,6 +53,7 @@ struct MainWindow: View {
                                        miterLimit: 24.00, dash: [25.0, 25.0, 0.0, 25.0], dashPhase: phase))
             .foregroundColor(Color.accentColor)
             .padding(5)
+            .transition(.opacity.animation(.easeInOut))
             .onAppear {
                 withAnimation(.linear(duration: 1).repeatForever(autoreverses: false)) {
                     phase -= 75

@@ -32,7 +32,7 @@ struct AddURLView: View {
                 .keyboardShortcut(.cancelAction)
 
                 Button {
-                    appState.newDownload(string: urlString)
+                    appState.addNewDownload(string: urlString)
                     appState.presentedSheet = nil
                 } label: {
                     Text("Add")

@@ -16,9 +16,9 @@ final class AppState: ObservableObject {
         dropDelegate = FileDropDelegate { [unowned self] status in
             self.dropStatus = status
         } parseFileDownloads: { [unowned self] url in
-            self.parseFileDownloads(from: url)
+            self.parseFileURLsAndGenerateDownloads(from: url)
         } newDownloadFromURL: { [unowned self] url in
-            self.newDownload(url: url)
+            self.addNewDownload(url: url)
         }
 
         if destinationFolder == nil {
@@ -26,15 +26,15 @@ final class AppState: ObservableObject {
         }
     }
 
-    func newDownload(string: String) {
+    func addNewDownload(string: String) {
         guard let url = URL(string: string) else {
             return
         }
 
-        newDownload(url: url)
+        addNewDownload(url: url)
     }
 
-    func newDownload(url: URL) {
+    func addNewDownload(url: URL) {
         let manager = Download(url: url, destination: destinationFolder)
         manager.url = url
 
@@ -44,8 +44,8 @@ final class AppState: ObservableObject {
 
     func openFile() {
         let openPanel = NSOpenPanel()
-        openPanel.message = "Select a file with URLs separated by newlines"
 
+        openPanel.message = "Select a file with URLs separated by newlines"
         openPanel.allowedContentTypes = [.plainText]
         openPanel.allowsMultipleSelection = false
         openPanel.canChooseDirectories = false
@@ -57,15 +57,15 @@ final class AppState: ObservableObject {
             return
         }
 
-        parseFileDownloads(from: url)
+        parseFileURLsAndGenerateDownloads(from: url)
     }
 
-    func parseFileDownloads(from file: URL) {
+    private func parseFileURLsAndGenerateDownloads(from file: URL) {
         Task.detached(priority: .userInitiated) {
             let urls = await URLParser.parseURLs(from: file)
 
             await MainActor.run {
-                urls.forEach(self.newDownload(url:))
+                urls.forEach(self.addNewDownload(url:))
             }
         }
     }
