@@ -3,6 +3,7 @@
 
 import SwiftUI
 
+@MainActor
 final class AppState: ObservableObject {
     @Published var downloads: [Download] = []
     @Published var presentedSheet: Sheet?
@@ -65,7 +66,9 @@ final class AppState: ObservableObject {
             let urls = await URLParser.parseURLs(from: file)
 
             await MainActor.run {
-                urls.forEach(self.addNewDownload(url:))
+                for url in urls {
+                    self.addNewDownload(url: url)
+                }
             }
         }
     }

@@ -4,6 +4,7 @@
 import AppKit
 import Foundation
 
+@MainActor
 final class Download: ObservableObject, Identifiable {
     @Published var renamed: String? = nil
     @Published var channels: Int = 0
@@ -26,14 +27,7 @@ final class Download: ObservableObject, Identifiable {
         task?.cancel()
         aria2Status = nil
 
-        if let task = generateDownloadTask() {
-            status = .downloading
-            self.task = task
-
-            Task.detached(priority: .userInitiated) {
-                await task.value
-            }
-        }
+        generateDownloadTask()
     }
 
     func cancel() {
@@ -66,9 +60,8 @@ final class Download: ObservableObject, Identifiable {
 
     func statusText() -> String {
         switch status {
-        case .notStarted,
-             .downloading where progress.localizedAdditionalDescription.isEmpty:
-            return "Starting"
+        case .notStarted:
+            return "Waiting"
         case .downloading:
             return progress.localizedAdditionalDescription
                 .replacingOccurrences(of: " — ", with: "\n")
@@ -81,18 +74,23 @@ final class Download: ObservableObject, Identifiable {
         }
     }
 
-    private func generateDownloadTask() -> Task<Void, Never>? {
-        Task {
+    private func generateDownloadTask() {
+        task = Task.detached { [weak self, url, destinationFolder] in
             for await ariaUpdate in DownloadTask.launch(url: url, destination: destinationFolder) {
+                guard let self = self else {
+                    return
+                }
+
                 await MainActor.run {
                     switch ariaUpdate {
                     case let .update(progressReport):
-                        channels = progressReport.channels
+                        self.status = .downloading
+                        self.channels = progressReport.channels
 
-                        progress.throughput = progressReport.speed
-                        progress.estimatedTimeRemaining = Double(progressReport.eta)
-                        progress.totalUnitCount = Int64(progressReport.total)
-                        progress.completedUnitCount = Int64(progressReport.downloaded)
+                        self.progress.throughput = progressReport.speed
+                        self.progress.estimatedTimeRemaining = Double(progressReport.eta)
+                        self.progress.totalUnitCount = Int64(progressReport.total)
+                        self.progress.completedUnitCount = Int64(progressReport.downloaded)
 
                     case let .renamed(newName):
                         self.renamed = newName
