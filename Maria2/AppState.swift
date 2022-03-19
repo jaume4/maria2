@@ -6,10 +6,21 @@ import SwiftUI
 final class AppState: ObservableObject {
     @Published var downloads: [Download] = []
     @Published var presentedSheet: Sheet?
+    @Published var dropStatus: FileDropDelegate.Status = .none
     @AppStorage var destinationFolder: URL!
+    var dropDelegate: FileDropDelegate!
 
     init() {
         _destinationFolder = AppStorage("destinationFolder")
+
+        dropDelegate = FileDropDelegate { [unowned self] status in
+            self.dropStatus = status
+        } parseFileDownloads: { [unowned self] url in
+            self.parseFileDownloads(from: url)
+        } newDownloadFromURL: { [unowned self] url in
+            self.newDownload(url: url)
+        }
+
         if destinationFolder == nil {
             destinationFolder = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Downloads")
         }
@@ -33,7 +44,7 @@ final class AppState: ObservableObject {
 
     func openFile() {
         let openPanel = NSOpenPanel()
-        openPanel.message = "Select a file with URL separated by newlines"
+        openPanel.message = "Select a file with URLs separated by newlines"
 
         openPanel.allowedContentTypes = [.plainText]
         openPanel.allowsMultipleSelection = false
@@ -46,8 +57,17 @@ final class AppState: ObservableObject {
             return
         }
 
-        URLParser.parseURLs(from: url)
-            .forEach(newDownload(url:))
+        parseFileDownloads(from: url)
+    }
+
+    func parseFileDownloads(from file: URL) {
+        Task.detached(priority: .userInitiated) {
+            let urls = await URLParser.parseURLs(from: file)
+
+            await MainActor.run {
+                urls.forEach(self.newDownload(url:))
+            }
+        }
     }
 }
 

@@ -5,14 +5,16 @@ import Foundation
 import Parsing
 
 enum URLParser {
-    static func parseURLs(from url: URL) -> [URL] {
-        do {
-            let data = try! Data(contentsOf: url)
-            return try FileParser.parse(String(decoding: data, as: UTF8.self))
-        } catch {
-            print("Failed to load URL from file: \(error.localizedDescription)")
-            return []
-        }
+    static func parseURLs(from url: URL) async -> [URL] {
+        await Task(priority: .userInitiated) {
+            do {
+                let data = try Data(contentsOf: url)
+                return try FileParser.parse(String(decoding: data, as: UTF8.self))
+            } catch {
+                print("Failed to load URL from file: \(error.localizedDescription)")
+                return []
+            }
+        }.value
     }
 
     static let FileParser = Parse {

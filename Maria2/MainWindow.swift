@@ -5,13 +5,19 @@ import SwiftUI
 
 struct MainWindow: View {
     @EnvironmentObject var appState: AppState
+    @State private var phase: CGFloat = 0
 
     var body: some View {
-        Group {
-            if !appState.downloads.isEmpty {
-                downloadView
-            } else {
-                emptyView
+        ZStack {
+            Group {
+                if !appState.downloads.isEmpty {
+                    downloadView
+                } else {
+                    emptyView
+                }
+            }
+            if appState.dropStatus == .entered {
+                animateDropFileView
             }
         }
         .sheet(item: $appState.presentedSheet, content: sheetView(for:))
@@ -32,9 +38,26 @@ struct MainWindow: View {
     }
 
     var emptyView: some View {
-        Text("Add a download to start")
-            .frame(alignment: .center)
-            .padding()
+        VStack(alignment: .center, spacing: 10) {
+            Image(systemName: "arrow.down.doc.fill")
+                .symbolRenderingMode(.hierarchical)
+                .foregroundStyle(Color.accentColor)
+                .font(.largeTitle)
+            Text("Drag a URL or file to start new downloads")
+        }
+    }
+
+    var animateDropFileView: some View {
+        Rectangle()
+            .stroke(style: StrokeStyle(lineWidth: 8.00, lineCap: .round, lineJoin: .round,
+                                       miterLimit: 24.00, dash: [25.0, 25.0, 0.0, 25.0], dashPhase: phase))
+            .foregroundColor(Color.accentColor)
+            .padding(5)
+            .onAppear {
+                withAnimation(.linear(duration: 1).repeatForever(autoreverses: false)) {
+                    phase -= 75
+                }
+            }
     }
 
     private func sheetView(for sheet: AppState.Sheet) -> some View {

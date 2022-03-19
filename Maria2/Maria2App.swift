@@ -18,6 +18,7 @@ struct Maria2App: App {
                 .navigationTitle("Maria2")
                 .toolbar { toolbar }
                 .frame(minWidth: 400, minHeight: 400)
+                .onDrop(of: [.fileURL, .plainText], delegate: appState.dropDelegate)
         }
 
         .commands {
