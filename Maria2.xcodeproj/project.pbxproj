@@ -112,18 +112,13 @@
 		1F3CB84F27DD119C00A1D4B8 /* Maria2 */ = {
 			isa = PBXGroup;
 			children = (
-				1F3CB85027DD119C00A1D4B8 /* Maria2App.swift */,
-				1F3CB86427DD287F00A1D4B8 /* DownloadTask.swift */,
-				1F3CB87227DDCB6200A1D4B8 /* URL+.swift */,
-				1F3CB87027DD581500A1D4B8 /* Aria2CTerminationStatus.swift */,
-				1F3CB86827DD3A4300A1D4B8 /* Aria2Parser.swift */,
-				1F72CA5627E51CAD00833761 /* URLParser.swift */,
-				1F3CB85227DD119C00A1D4B8 /* MainWindow.swift */,
 				1F7E500427DF2A9500139809 /* AppState.swift */,
+				1F3CB85027DD119C00A1D4B8 /* Maria2App.swift */,
 				1F72CA5827E5BA5D00833761 /* FileDropDelegate.swift */,
-				1F0A96F927E1CD91009AE9FC /* AddURLView.swift */,
-				1FA71BED27DE89CD00458703 /* DownloadView.swift */,
-				1FA71BC927DDE07E00458703 /* Download.swift */,
+				1F418DA727E5F98100D4D0B7 /* Main Window */,
+				1F418DA827E5F99B00D4D0B7 /* Downloads */,
+				1F418DA927E5F9C200D4D0B7 /* Extensions */,
+				1F418DAA27E5F9D700D4D0B7 /* Parsers */,
 				1F3CB86327DD269500A1D4B8 /* Resources */,
 				1F3CB85627DD119C00A1D4B8 /* Preview Content */,
 			);
@@ -146,6 +141,43 @@
 				1F3CB85F27DD255100A1D4B8 /* aria2c */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		1F418DA727E5F98100D4D0B7 /* Main Window */ = {
+			isa = PBXGroup;
+			children = (
+				1FA71BED27DE89CD00458703 /* DownloadView.swift */,
+				1F3CB85227DD119C00A1D4B8 /* MainWindow.swift */,
+			);
+			path = "Main Window";
+			sourceTree = "<group>";
+		};
+		1F418DA827E5F99B00D4D0B7 /* Downloads */ = {
+			isa = PBXGroup;
+			children = (
+				1F0A96F927E1CD91009AE9FC /* AddURLView.swift */,
+				1FA71BC927DDE07E00458703 /* Download.swift */,
+				1F3CB86427DD287F00A1D4B8 /* DownloadTask.swift */,
+			);
+			path = Downloads;
+			sourceTree = "<group>";
+		};
+		1F418DA927E5F9C200D4D0B7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F3CB87227DDCB6200A1D4B8 /* URL+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1F418DAA27E5F9D700D4D0B7 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				1F3CB87027DD581500A1D4B8 /* Aria2CTerminationStatus.swift */,
+				1F3CB86827DD3A4300A1D4B8 /* Aria2Parser.swift */,
+				1F72CA5627E51CAD00833761 /* URLParser.swift */,
+			);
+			path = Parsers;
 			sourceTree = "<group>";
 		};
 		1FA71BE527DE014600458703 /* Maria2Tests */ = {

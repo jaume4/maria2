@@ -37,13 +37,15 @@ struct FileDropDelegate: DropDelegate {
                           FileManager.default.fileExists(atPath: url.path, isDirectory: &isDirectory),
                           !isDirectory.boolValue
                     else {
-                        print("Dropped a folder, ignoring")
+                        print("Can't read file or dropped a folder, ignoring")
                         return
                     }
 
                     parseFileDownloads(url)
                 }
             }
+
+            return true
         } else if info.hasItemsConforming(to: [.url]) {
             let urlProviders = info.itemProviders(for: [.url])
 
@@ -61,11 +63,10 @@ struct FileDropDelegate: DropDelegate {
                 }
             }
 
+            return true
         } else {
             return false
         }
-
-        return true
     }
 
     func dropEntered(info: DropInfo) {
