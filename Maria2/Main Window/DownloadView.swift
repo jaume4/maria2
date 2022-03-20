@@ -64,6 +64,7 @@ struct DownloadView_Previews: PreviewProvider {
         download.progress.throughput = 20_000
         download.progress.estimatedTimeRemaining = 20
         download.status = .downloading
+        download.channels = .random(in: 9 ... 11)
 
         return download
     }

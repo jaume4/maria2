@@ -27,12 +27,14 @@ final class AppState: ObservableObject {
         }
     }
 
-    func addNewDownload(string: String) {
+    @discardableResult
+    func addNewDownload(string: String) -> Bool {
         guard let url = URL(string: string) else {
-            return
+            return false
         }
 
         addNewDownload(url: url)
+        return true
     }
 
     func addNewDownload(url: URL) {

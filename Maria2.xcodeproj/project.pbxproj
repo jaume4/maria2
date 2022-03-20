@@ -151,6 +151,7 @@
 			children = (
 				1FA71BED27DE89CD00458703 /* DownloadView.swift */,
 				1F3CB85227DD119C00A1D4B8 /* MainWindow.swift */,
+				1F0A96F927E1CD91009AE9FC /* AddURLView.swift */,
 			);
 			path = "Main Window";
 			sourceTree = "<group>";
@@ -158,7 +159,6 @@
 		1F418DA827E5F99B00D4D0B7 /* Downloads */ = {
 			isa = PBXGroup;
 			children = (
-				1F0A96F927E1CD91009AE9FC /* AddURLView.swift */,
 				1FA71BC927DDE07E00458703 /* Download.swift */,
 				1F3CB86427DD287F00A1D4B8 /* DownloadTask.swift */,
 			);

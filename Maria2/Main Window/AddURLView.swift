@@ -19,6 +19,12 @@ struct AddURLView: View {
             HStack {
                 Text("URL")
                 TextField("URL", text: $urlString)
+                    .onSubmit {
+                        guard appState.addNewDownload(string: urlString) else {
+                            return
+                        }
+                        appState.presentedSheet = nil
+                    }
             }
             .frame(maxWidth: 400)
 

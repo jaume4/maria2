@@ -63,8 +63,18 @@ final class Download: ObservableObject, Identifiable {
         case .notStarted:
             return "Waiting"
         case .downloading:
-            return progress.localizedAdditionalDescription
-                .replacingOccurrences(of: " — ", with: "\n")
+            var report = progress.localizedAdditionalDescription
+                .components(separatedBy: " — ")
+
+            if channels > 0 {
+                report.insert(" — \(channels) channel" + (channels > 1 ? "s" : ""), at: 1)
+                report.insert("\n", at: 2)
+
+                return report.joined()
+            } else {
+                return report.joined(separator: "\n")
+            }
+
         case .cancelled:
             return "Cancelled"
         case .error:
