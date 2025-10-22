@@ -3,28 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 73;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F0A96FA27E1CD91009AE9FC /* AddURLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0A96F927E1CD91009AE9FC /* AddURLView.swift */; };
-		1F3CB85127DD119C00A1D4B8 /* Maria2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB85027DD119C00A1D4B8 /* Maria2App.swift */; };
-		1F3CB85327DD119C00A1D4B8 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB85227DD119C00A1D4B8 /* MainWindow.swift */; };
-		1F3CB85527DD119C00A1D4B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3CB85427DD119C00A1D4B8 /* Assets.xcassets */; };
-		1F3CB85827DD119C00A1D4B8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3CB85727DD119C00A1D4B8 /* Preview Assets.xcassets */; };
-		1F3CB86227DD265000A1D4B8 /* aria2c in Copya aria2c */ = {isa = PBXBuildFile; fileRef = 1F3CB85F27DD255100A1D4B8 /* aria2c */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		1F3CB86527DD287F00A1D4B8 /* DownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB86427DD287F00A1D4B8 /* DownloadTask.swift */; };
-		1F3CB86927DD3A4300A1D4B8 /* Aria2Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB86827DD3A4300A1D4B8 /* Aria2Parser.swift */; };
 		1F3CB86C27DD3A8300A1D4B8 /* Parsing in Frameworks */ = {isa = PBXBuildFile; productRef = 1F3CB86B27DD3A8300A1D4B8 /* Parsing */; };
-		1F3CB87127DD581500A1D4B8 /* Aria2CTerminationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB87027DD581500A1D4B8 /* Aria2CTerminationStatus.swift */; };
-		1F3CB87327DDCB6200A1D4B8 /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB87227DDCB6200A1D4B8 /* URL+.swift */; };
-		1F418DAC27E6031700D4D0B7 /* AppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F418DAB27E6031700D4D0B7 /* AppCommands.swift */; };
-		1F72CA5727E51CAD00833761 /* URLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F72CA5627E51CAD00833761 /* URLParser.swift */; };
-		1F72CA5927E5BA5D00833761 /* FileDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F72CA5827E5BA5D00833761 /* FileDropDelegate.swift */; };
-		1F7E500527DF2A9500139809 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7E500427DF2A9500139809 /* AppState.swift */; };
-		1FA71BCA27DDE07E00458703 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA71BC927DDE07E00458703 /* Download.swift */; };
-		1FA71BE727DE014600458703 /* Maria2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA71BE627DE014600458703 /* Maria2Tests.swift */; };
-		1FA71BEE27DE89CD00458703 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA71BED27DE89CD00458703 /* DownloadView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +27,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
-				1F3CB86227DD265000A1D4B8 /* aria2c in Copya aria2c */,
 			);
 			name = "Copya aria2c";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,27 +34,39 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1F0A96F927E1CD91009AE9FC /* AddURLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddURLView.swift; sourceTree = "<group>"; };
 		1F3CB84D27DD119C00A1D4B8 /* Maria2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maria2.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F3CB85027DD119C00A1D4B8 /* Maria2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maria2App.swift; sourceTree = "<group>"; };
-		1F3CB85227DD119C00A1D4B8 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
-		1F3CB85427DD119C00A1D4B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1F3CB85727DD119C00A1D4B8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1F3CB85927DD119C00A1D4B8 /* Maria2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Maria2.entitlements; sourceTree = "<group>"; };
-		1F3CB85F27DD255100A1D4B8 /* aria2c */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = aria2c; sourceTree = "<group>"; };
-		1F3CB86427DD287F00A1D4B8 /* DownloadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTask.swift; sourceTree = "<group>"; };
-		1F3CB86827DD3A4300A1D4B8 /* Aria2Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aria2Parser.swift; sourceTree = "<group>"; };
-		1F3CB87027DD581500A1D4B8 /* Aria2CTerminationStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aria2CTerminationStatus.swift; sourceTree = "<group>"; };
-		1F3CB87227DDCB6200A1D4B8 /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
-		1F418DAB27E6031700D4D0B7 /* AppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommands.swift; sourceTree = "<group>"; };
-		1F72CA5627E51CAD00833761 /* URLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParser.swift; sourceTree = "<group>"; };
-		1F72CA5827E5BA5D00833761 /* FileDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDropDelegate.swift; sourceTree = "<group>"; };
-		1F7E500427DF2A9500139809 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		1FA71BC927DDE07E00458703 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		1FA71BE427DE014600458703 /* Maria2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Maria2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FA71BE627DE014600458703 /* Maria2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maria2Tests.swift; sourceTree = "<group>"; };
-		1FA71BED27DE89CD00458703 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1FF5221B2EA974CB006ED347 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/aria2c,
+			);
+			target = 1F3CB84C27DD119C00A1D4B8 /* Maria2 */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		1FF5221C2EA974CB006ED347 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			attributesByRelativePath = {
+				Resources/aria2c = (
+					CodeSignOnCopy,
+				);
+			};
+			buildPhase = 1F3CB86127DD264800A1D4B8 /* Copya aria2c */;
+			membershipExceptions = (
+				Resources/aria2c,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		1FF522092EA974CB006ED347 /* Maria2 */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (1FF5221B2EA974CB006ED347 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 1FF5221C2EA974CB006ED347 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Maria2; sourceTree = "<group>"; };
+		1FF5221E2EA974CF006ED347 /* Maria2Tests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Maria2Tests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1F3CB84A27DD119C00A1D4B8 /* Frameworks */ = {
@@ -96,8 +90,8 @@
 		1F3CB84427DD119C00A1D4B8 = {
 			isa = PBXGroup;
 			children = (
-				1F3CB84F27DD119C00A1D4B8 /* Maria2 */,
-				1FA71BE527DE014600458703 /* Maria2Tests */,
+				1FF522092EA974CB006ED347 /* Maria2 */,
+				1FF5221E2EA974CF006ED347 /* Maria2Tests */,
 				1F3CB84E27DD119C00A1D4B8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,86 +103,6 @@
 				1FA71BE427DE014600458703 /* Maria2Tests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		1F3CB84F27DD119C00A1D4B8 /* Maria2 */ = {
-			isa = PBXGroup;
-			children = (
-				1F7E500427DF2A9500139809 /* AppState.swift */,
-				1F418DAB27E6031700D4D0B7 /* AppCommands.swift */,
-				1F3CB85027DD119C00A1D4B8 /* Maria2App.swift */,
-				1F72CA5827E5BA5D00833761 /* FileDropDelegate.swift */,
-				1F418DA727E5F98100D4D0B7 /* Main Window */,
-				1F418DA827E5F99B00D4D0B7 /* Downloads */,
-				1F418DA927E5F9C200D4D0B7 /* Extensions */,
-				1F418DAA27E5F9D700D4D0B7 /* Parsers */,
-				1F3CB86327DD269500A1D4B8 /* Resources */,
-				1F3CB85627DD119C00A1D4B8 /* Preview Content */,
-			);
-			path = Maria2;
-			sourceTree = "<group>";
-		};
-		1F3CB85627DD119C00A1D4B8 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				1F3CB85727DD119C00A1D4B8 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		1F3CB86327DD269500A1D4B8 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				1F3CB85427DD119C00A1D4B8 /* Assets.xcassets */,
-				1F3CB85927DD119C00A1D4B8 /* Maria2.entitlements */,
-				1F3CB85F27DD255100A1D4B8 /* aria2c */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		1F418DA727E5F98100D4D0B7 /* Main Window */ = {
-			isa = PBXGroup;
-			children = (
-				1FA71BED27DE89CD00458703 /* DownloadView.swift */,
-				1F3CB85227DD119C00A1D4B8 /* MainWindow.swift */,
-				1F0A96F927E1CD91009AE9FC /* AddURLView.swift */,
-			);
-			path = "Main Window";
-			sourceTree = "<group>";
-		};
-		1F418DA827E5F99B00D4D0B7 /* Downloads */ = {
-			isa = PBXGroup;
-			children = (
-				1FA71BC927DDE07E00458703 /* Download.swift */,
-				1F3CB86427DD287F00A1D4B8 /* DownloadTask.swift */,
-			);
-			path = Downloads;
-			sourceTree = "<group>";
-		};
-		1F418DA927E5F9C200D4D0B7 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				1F3CB87227DDCB6200A1D4B8 /* URL+.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		1F418DAA27E5F9D700D4D0B7 /* Parsers */ = {
-			isa = PBXGroup;
-			children = (
-				1F3CB87027DD581500A1D4B8 /* Aria2CTerminationStatus.swift */,
-				1F3CB86827DD3A4300A1D4B8 /* Aria2Parser.swift */,
-				1F72CA5627E51CAD00833761 /* URLParser.swift */,
-			);
-			path = Parsers;
-			sourceTree = "<group>";
-		};
-		1FA71BE527DE014600458703 /* Maria2Tests */ = {
-			isa = PBXGroup;
-			children = (
-				1FA71BE627DE014600458703 /* Maria2Tests.swift */,
-			);
-			path = Maria2Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +120,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1FF522092EA974CB006ED347 /* Maria2 */,
 			);
 			name = Maria2;
 			packageProductDependencies = (
@@ -227,6 +144,9 @@
 			);
 			dependencies = (
 				1FA71BE927DE014600458703 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				1FF5221E2EA974CF006ED347 /* Maria2Tests */,
 			);
 			name = Maria2Tests;
 			productName = Maria2Tests;
@@ -253,7 +173,6 @@
 				};
 			};
 			buildConfigurationList = 1F3CB84827DD119C00A1D4B8 /* Build configuration list for PBXProject "Maria2" */;
-			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -264,6 +183,7 @@
 			packageReferences = (
 				1F3CB86A27DD3A8300A1D4B8 /* XCRemoteSwiftPackageReference "swift-parsing" */,
 			);
+			preferredProjectObjectVersion = 55;
 			productRefGroup = 1F3CB84E27DD119C00A1D4B8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -279,8 +199,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F3CB85827DD119C00A1D4B8 /* Preview Assets.xcassets in Resources */,
-				1F3CB85527DD119C00A1D4B8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,19 +216,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F0A96FA27E1CD91009AE9FC /* AddURLView.swift in Sources */,
-				1FA71BEE27DE89CD00458703 /* DownloadView.swift in Sources */,
-				1F3CB85327DD119C00A1D4B8 /* MainWindow.swift in Sources */,
-				1F3CB87327DDCB6200A1D4B8 /* URL+.swift in Sources */,
-				1F7E500527DF2A9500139809 /* AppState.swift in Sources */,
-				1F418DAC27E6031700D4D0B7 /* AppCommands.swift in Sources */,
-				1F72CA5927E5BA5D00833761 /* FileDropDelegate.swift in Sources */,
-				1F3CB85127DD119C00A1D4B8 /* Maria2App.swift in Sources */,
-				1F3CB86927DD3A4300A1D4B8 /* Aria2Parser.swift in Sources */,
-				1F3CB87127DD581500A1D4B8 /* Aria2CTerminationStatus.swift in Sources */,
-				1F3CB86527DD287F00A1D4B8 /* DownloadTask.swift in Sources */,
-				1F72CA5727E51CAD00833761 /* URLParser.swift in Sources */,
-				1FA71BCA27DDE07E00458703 /* Download.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +223,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FA71BE727DE014600458703 /* Maria2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
